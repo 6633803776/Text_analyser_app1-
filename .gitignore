@@ -1,0 +1,27 @@
+Python / Flask / Dependencies Files to Ignore
+
+#############################################
+
+Virtual Environment (สำคัญมากสำหรับ Flask)
+
+venv/
+.venv/
+
+Python cache files
+
+pycache/
+*.pyc
+
+Instance folder for Flask applications (มักใช้เก็บ config หรือ SQLite DB)
+
+instance/
+
+IDE files (VS Code, Pycharm, etc.)
+
+.vscode/
+.idea/
+
+Operating System Files
+
+.DS_Store # MacOS
+Thumbs.db # Windows
