@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cute Text Analyser 🎀</title>
+    <!-- 1. เชื่อมโยง Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- 2. การเชื่อมโยง CSS: ต้องแน่ใจว่าไฟล์ในโฟลเดอร์ static ชื่อ 'style.css' -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>✨ Simple Text Analyser ✨</h1>
+        
+        <form method="POST">
+            <label for="input_text">Enter your text here:</label>
+            <textarea id="input_text" name="input_text" rows="10" placeholder="Type or paste your text... (e.g., The quick brown fox jumps over the lazy dog.)">{{ current_text }}</textarea>
+            <button type="submit" class="pastel-button">Analyze Text 📊</button>
+        </form>
+
+        {% if results %}
+        <div class="analysis-results">
+            <h2>--- Analysis Results ---</h2>
+            {% if results.error %}
+                <p class="error">{{ results.error }}</p>
+            {% else %}
+                <p>Total Characters (including spaces): <span>{{ results.char_count }}</span></p>
+                <p>Total Words: <span>{{ results.word_count }}</span></p>
+            {% endif %}
+            <p>------------------------</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
